@@ -1,0 +1,18 @@
+" " turn off distracting bracket matching
+function! FckThatMatchParen ()
+    if exists(":NoMatchParen")
+        :NoMatchParen
+    endif
+endfunction
+
+augroup plugin_initialize
+    autocmd!
+    autocmd VimEnter * call FckThatMatchParen()
+augroup END
+
+" folds are defined by indentations
+set foldmethod=indent
+set foldnestmax=2
+set foldlevel=1
+set foldlevelstart=0
+

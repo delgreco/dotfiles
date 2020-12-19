@@ -1,0 +1,57 @@
+------------ FOLDS --------------------------------------------------
+z R                     open all folds
+z o                     open this fold
+z M                     close all folds
+------------ VISUAL MODE --------------------------------------------
+v, arrows               select
+<SHIFT> >               indent right
+<SHIFT> <               indent left
+------------ FILES --------------------------------------------------
+:sp [file]              split horiztonally and open new file in pane
+:vsp [file]             split vertically and open new file in pane
+:x                      write if modified and quit
+:wqa                    write and quit all files
+:bd                     close file explorer
+:e                      reload current file
+:view                   open file read-only (or vim -R [file])
+:Sex                    open file explorer
+------------ MANAGING PANES -----------------------------------------
+<CTRL> w <arrow>        toggle to pane <arrow> 
+<CTRL> w =              resize all panes, re-equalizing
+<CTRL> o                go to last 'jump' point
+<CTRL> w <SHIFT> T      open pane in new tab
+------------ MOVEMENT -----------------------------------------------
+0                       go to beginning of line
+$                       go to end of line
+gk                      move up 1 *displayed* line (when wrapping)
+gj                      move down 1 *displayed* line (when wrapping) 
+:set scrollbind         Scrolling down both parts of a split-window at the same time
+:set noscrollbind       Turn off synced scrolling
+------------ TABS ---------------------------------------------------
+:tabnew [file]          open new file in new tab
+gt                      toggle to next tab
+[number] gt             toggle to tab [number]
+------------ OTHER --------------------------------------------------
+:! bash                 get a temporary shell ('exit' to return)
+<F1>                    save all files / kill procs in current environment
+<F2>                    open Apache error log and go to bottom
+<F3>                    open Apache ssl error log and go to bottom
+<F4>                    reload current file and go to bottom
+<F5>                    open side-by-side SVN diff in new tab
+<F6>                    source the ~/.vimrc file, redrawing syntax etc.
+<F7>                    email default register to $USER@unh.edu
+:NoMatchParen           turn OFF parentheses matching
+:DoMatchParen           turn ON parentheses matching
+------------ MARKS --------------------------------------------------
+' [mark]                go to [mark]
+m [mark]                set mark
+m <SPACE>               erase all marks
+------------ REGISTERS ----------------------------------------------
+" [register] p          paste [register]
+" [register] yy         copy line into [register]
+:reg                    list registers
+
+
+More tips here:
+https://vim.fandom.com/wiki/Shifting_blocks_visually
+
