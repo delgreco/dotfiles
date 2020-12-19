@@ -5,7 +5,7 @@ use warnings;
 
 =head1 install.pl
 
-Install customized working environment to home directory.
+Install customized working environment to my home directory.
 
 =cut
 
