@@ -14,7 +14,7 @@ filetype on
 au BufNewFile,BufRead *.t set filetype=perl
 " increase redrawtime from default 2 seconds
 " to improve syntax highlighting support
-set redrawtime=5000
+set redrawtime=10000
 
 "" ensure Delete key works as backspace
 set bs=2
