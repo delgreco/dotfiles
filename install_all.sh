@@ -5,7 +5,7 @@
 
 cd $HOME
 
-dotfiles/tmux_install.sh
-dotfiles/vim_install.sh
-dotfiles/install.pl
+dotfiles/install_tmux.sh
+dotfiles/install_vim.sh
+dotfiles/linkFiles.pl
 
