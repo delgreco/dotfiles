@@ -69,3 +69,8 @@ if [ -z "$TMUX" ]; then
 fi
 
 alias please="sudo"
+
+# for storing SVN passwords securely
+export GPG_TTY=$(tty)
+export GPG_AGENT_INFO=`gpgconf --list-dirs agent-socket | tr -d '\n' && echo -n ::`
+
