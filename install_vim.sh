@@ -23,7 +23,4 @@ git clone https://github.com/vim/vim.git
 
 cd vim/src
 
-#sudo make
-#sudo make install
-
 ./configure --prefix=$HOME/.local && make && make install
