@@ -36,7 +36,7 @@ cd ..
 
 # ncurses
 NCURSES_VERSION="6.2"
-curl -OL https://ftp.gnu.org/pub/ncurses/ncurses-${NCURSES_VERSION}.tar.gz
+curl -OL https://ftp.gnu.org/pub/gnu/ncurses/ncurses-${NCURSES_VERSION}.tar.gz
 tar -xvzf ncurses-${NCURSES_VERSION}.tar.gz
 cd ncurses-${NCURSES_VERSION}
 ./configure --prefix=$HOME/.local
