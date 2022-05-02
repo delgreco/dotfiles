@@ -55,6 +55,8 @@ sub _linkConfigFiles {
         '.bash_profile',
         '.bash_aliases',
         '.ackrc',
+        '.gitconfig',
+        '.gnupg',
         '.tmux.conf',
     );
     foreach my $file ( @files ) {
