@@ -9,9 +9,10 @@ fi
 
 #PATH=$PATH:$HOME/bin:/usr/sbin:/usr/lib:/home/delgreco:/usr/local/bin:$HOME/perl5/perlbrew/bin
 PATH=$HOME/.local/bin:/usr/local/bin:$PATH:/var/www/pbin/Perlbrew/bin
-SVN_EDITOR=/usr/local/bin/vim
+#SVN_EDITOR=/usr/local/bin/vim
+SVN_EDITOR=$(which vim 2> /dev/null)
 
-export EDITOR=/usr/local/bin/vim
+export EDITOR=$(which vim 2> /dev/null)
 export PATH
 export SVN_EDITOR
 unset USERNAME
