@@ -8,7 +8,7 @@ fi
 # User specific environment and startup programs
 
 #PATH=$PATH:$HOME/bin:/usr/sbin:/usr/lib:/home/delgreco:/usr/local/bin:$HOME/perl5/perlbrew/bin
-PATH=/usr/local/bin:$PATH:/var/www/pbin/Perlbrew/bin
+PATH=$HOME/.local/bin:/usr/local/bin:$PATH:/var/www/pbin/Perlbrew/bin
 SVN_EDITOR=/usr/local/bin/vim
 
 export EDITOR=/usr/local/bin/vim
