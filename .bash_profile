@@ -5,6 +5,10 @@ if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
 
+if [ -f ~/.bash_profile.${USER} ]; then
+    . ~/.bash_profile.${USER}
+fi
+
 # User specific environment and startup programs
 
 #PATH=$PATH:$HOME/bin:/usr/sbin:/usr/lib:/home/delgreco:/usr/local/bin:$HOME/perl5/perlbrew/bin
