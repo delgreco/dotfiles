@@ -24,14 +24,6 @@ unset USERNAME
 HISTFILESIZE=
 export TERM=xterm-256color
 
-if [ -d /oraap/oracle/product/12.1.0/dbhome_1/lib ]; then
-    export LD_LIBRARY_PATH=/oraapp/oracle/product/12.1.0/dbhome_1/lib
-    export ORACLE_HOME=/oraapp/oracle/product/12.1.0/dbhome_1
-else
-    export ORACLE_HOME=/usr/lib/oracle/12.1/client64
-    export LD_LIBRARY_PATH=/usr/lib/oracle/12.1/client64/lib
-fi
-
 if test -f ~/.bash_aliases; then
     source ~/.bash_aliases
 fi
