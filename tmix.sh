@@ -21,11 +21,11 @@ function create_tmux_session() {
     echo "splitting into vertical panes"
     tmux splitw -h -t $dir
     echo "tailing logs"
-    tmux send-keys -t $dir:2.1 "tail -f log/ssl_error.log" C-m
-    tmux send-keys -t $dir:2.2 "tail -f log/error.log" C-m 
+    tmux send-keys -t $dir:2.1 "tail -f log_apache/ssl_error.log" C-m
+    tmux send-keys -t $dir:2.2 "tail -f log_apache/error.log" C-m 
     echo "splitting right-hand pane (s)"
     tmux splitw -v -t $dir:2.2
-    tmux send-keys -t $dir:2.3 "tail -f log/access.log" C-m
+    tmux send-keys -t $dir:2.3 "tail -f log_apache/access.log" C-m
     echo "splitting lower right-hand pane"
     tmux splitw -v -t $dir:2.3
     tmux send-keys -t $dir:2.4 "sudo tail -f /var/log/maillog" C-m
