@@ -30,6 +30,7 @@
 --ignore-directory=is:tinymce
 --ignore-file=is:arm_dev.dump
 #--ignore-directory=is:deploy
+--ignore-file=match:/[.]svg$/
 # end Marcus's meddling
 --ignore-file=ext:bak
 --ignore-file=match:/~$/
