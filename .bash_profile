@@ -15,7 +15,7 @@ PATH=$HOME/.local/bin:/usr/local/bin:$PATH:/var/www/pbin/Perlbrew/bin
 SVN_EDITOR=$(which vim 2> /dev/null)
 
 # let tmux know where libevent libraries are
-export LD_LIBRARY_PATH='$LD_LIBRARY_PATH:$HOME/libevent-2.1.12-stable/.libs'
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/libevent-2.1.12-stable/.libs
 export EDITOR=$(which vim 2> /dev/null)
 export PATH
 export SVN_EDITOR
