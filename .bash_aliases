@@ -1,8 +1,8 @@
 # explicitly enable aliases
 shopt -s expand_aliases  
 
-#alias deploy.pl='/usr/bin/script -a deploy.txt -c deploy.pl'
 alias cron='sudo crontab -l -u'
+#alias deploy.pl='/usr/bin/script -a deploy.txt -c deploy.pl'
 alias ixk='sudo /usr/local/bin/ixctl kill'
 alias ixkt='sudo /usr/local/bin/ixctl killthis'
 #alias ix_changes='for i in `/usr/bin/ls /var/www/apps/`; do cd /var/www/apps/$i/app/IX; svn st | grep -ve "^$" | grep -v Performing | grep -v "X "; done'
