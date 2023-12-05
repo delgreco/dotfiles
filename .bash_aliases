@@ -24,3 +24,8 @@ alias weblog='sudo vim /etc/httpd/logs/error_log'
 function svndiff() {
     svn diff $1 | vim -
 }
+
+function gitdiff() {
+    git diff $1 | vim -
+}
+
