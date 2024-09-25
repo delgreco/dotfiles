@@ -1,5 +1,8 @@
-# explicitly enable aliases
-shopt -s expand_aliases  
+# explicitly enable aliases in Bash,
+# whereas zsh expands them automatically
+if [ -n "$BASH_VERSION" ]; then
+    shopt -s expand_aliases
+fi
 
 alias cron='sudo crontab -l -u'
 #alias deploy.pl='/usr/bin/script -a deploy.txt -c deploy.pl'
