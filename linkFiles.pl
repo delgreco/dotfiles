@@ -29,9 +29,11 @@ unless ( -l $sharedvim ) {
 }
 
 my $uservim = ".vimrc.$ENV{USER}";
-unless ( -l ".vimrc.$ENV{USER}" ) {
-    print STDOUT "Linking user-specific vim config...\n";
-    `ln -s $ENV{HOME}/dotfiles/.vimrc.$ENV{USER} $uservim`;
+if ( -e "$ENV{HOME}/dotfiles/.vimrc.$ENV{USER}" ) {
+    unless ( -l ".vimrc.$ENV{USER}" ) {
+        print STDOUT "Linking user-specific vim config...\n";
+        `ln -s $ENV{HOME}/dotfiles/.vimrc.$ENV{USER} $uservim`;
+    }
 }
 
 my $sqlsyn = "$ENV{HOME}/.vim/after/syntax/perl/heredoc-sql.vim";

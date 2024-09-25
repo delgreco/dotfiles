@@ -24,6 +24,7 @@
 --ignore-directory=is:.metadata
 # Marcus ignores some things
 --ignore-directory=is:local
+#--ignore-directory=match:/^local*/
 --ignore-directory=is:log
 --ignore-directory=is:POD
 --ignore-directory=is:IX
