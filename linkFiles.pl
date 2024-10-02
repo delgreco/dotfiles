@@ -60,6 +60,7 @@ sub _linkConfigFiles {
         '.gitconfig',
         '.gnupg',
         '.tmux.conf',
+        '.zshrc',
     );
     foreach my $file ( @files ) {
         if ( -e "$ENV{HOME}/$file" && ! -l "$ENV{HOME}/$file" ) {
