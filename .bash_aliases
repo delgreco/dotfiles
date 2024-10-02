@@ -1,12 +1,16 @@
-# explicitly enable aliases
-shopt -s expand_aliases  
+# explicitly enable aliases in Bash,
+# whereas zsh expands them automatically
+if [ -n "$BASH_VERSION" ]; then
+    shopt -s expand_aliases
+fi
 
-#alias deploy.pl='/usr/bin/script -a deploy.txt -c deploy.pl'
 alias cron='sudo crontab -l -u'
+#alias deploy.pl='/usr/bin/script -a deploy.txt -c deploy.pl'
 alias ixk='sudo /usr/local/bin/ixctl kill'
 alias ixkt='sudo /usr/local/bin/ixctl killthis'
 #alias ix_changes='for i in `/usr/bin/ls /var/www/apps/`; do cd /var/www/apps/$i/app/IX; svn st | grep -ve "^$" | grep -v Performing | grep -v "X "; done'
 alias ix_changes='/usr/local/bin/release/ix_changes.sh'
+alias ext='/usr/local/bin/release/externals.pl'
 alias point='svn propset svn:externals -F svn.externals .'
 alias pointup='svn propset svn:externals -F svn.externals .; svn up;'
 alias pu='pointup'
@@ -24,3 +28,8 @@ alias weblog='sudo vim /etc/httpd/logs/error_log'
 function svndiff() {
     svn diff $1 | vim -
 }
+
+function gitdiff() {
+    git diff $1 | vim -
+}
+

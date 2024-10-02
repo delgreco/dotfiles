@@ -1,45 +1,49 @@
-# .bash_profile
-
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
+    . ~/.bashrc
 fi
 
+# load user-specific profile, if present
 if [ -f ~/.bash_profile.${USER} ]; then
     . ~/.bash_profile.${USER}
 fi
 
-# User specific environment and startup programs
-
-#PATH=$PATH:$HOME/bin:/usr/sbin:/usr/lib:/home/delgreco:/usr/local/bin:$HOME/perl5/perlbrew/bin
+# append import paths to $PATH 
 PATH=$HOME/.local/bin:/usr/local/bin:$PATH:/var/www/pbin/Perlbrew/bin
-#SVN_EDITOR=/usr/local/bin/vim
+
+# set vim as the editor for SVN
 SVN_EDITOR=$(which vim 2> /dev/null)
 
+# let tmux know where libevent libraries are
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/libevent-2.1.12-stable/.libs
 export EDITOR=$(which vim 2> /dev/null)
 export PATH
 export SVN_EDITOR
+
 unset USERNAME
 
 HISTFILESIZE=
 export TERM=xterm-256color
 
+# bash aliases included in dotfiles
 if test -f ~/.bash_aliases; then
     source ~/.bash_aliases
 fi
+
+# bash aliases for mysql connections not included in dotfiles
 if test -f ~/.mysql_aliases; then
     source ~/.mysql_aliases
 fi
+
+# additional bash aliases not included in dotfiles
 if test -f ~/.bash_aliases_; then
     source ~/.bash_aliases_
 fi
 
-#if test -f ~/perl5/perlbrew/etc/bashrc; then
-#    source ~/perl5/perlbrew/etc/bashrc
-#fi
-
 #echo 'See all connected hosts: ss -napr'
 
+# customize command prompt with colors
+# user@host [curdir]:
 export PS1="\[\e[1;31m\]\u\[\e[0m\]@\[\e[0;36m\]\h \[\e[0m\]\[\e[m\[\e[0;32m\][\W]\[\e[0m\]: "
 
 export HISTSIZE=10000
@@ -65,11 +69,13 @@ if [ -z "$TMUX" ]; then
     tmux a -d || tmux new -s new
 fi
 
-alias please="sudo"
-
 # for storing SVN passwords securely
 export GPG_TTY=$(tty)
-export GPG_AGENT_INFO=`gpgconf --list-dirs agent-socket | tr -d '\n' && echo -n ::`
+# test for gpgconf to avoid erorr if missing
+if command -v gpgconf &> /dev/null
+then
+    export GPG_AGENT_INFO=`gpgconf --list-dirs agent-socket | tr -d '\n' && echo -n ::`
+fi
 
 
 # >>> conda initialize >>>

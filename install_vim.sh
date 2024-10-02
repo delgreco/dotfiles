@@ -16,7 +16,6 @@ elif [[ ! -z $APT_GET_CMD ]]; then
     echo "apt-get packages required: build-essential libncurses-dev git"
 else
     echo "Neither yum nor apt-get are present on this system; dependencies may need to be installed manually"
-    exit 1;
 fi
 
 git clone https://github.com/vim/vim.git
