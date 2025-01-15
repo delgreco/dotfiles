@@ -36,6 +36,12 @@ if ( -e "$ENV{HOME}/dotfiles/.vimrc.$ENV{USER}" ) {
     }
 }
 
+my $perlsyn = "$ENV{HOME}/.vim/after/syntax/perl/perl.vim";
+unless ( -l $perlsyn ) {
+    print STDOUT "Linking Perl syntax highlighting...\n";
+    `ln -s $ENV{HOME}/dotfiles/perl.vim $perlsyn`;
+}
+
 my $sqlsyn = "$ENV{HOME}/.vim/after/syntax/perl/heredoc-sql.vim";
 unless ( -l $sqlsyn ) {
     print STDOUT "Linking heredoc/sql syntax highlighting...\n";
