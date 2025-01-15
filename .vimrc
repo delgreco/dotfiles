@@ -124,6 +124,9 @@ map <F6> :source ~/.vimrc<CR>
 " email the current register
 nnoremap <silent> <F7> :silent split clipboard.txt<bar>silent put<bar>1delete _<bar>:w<bar>:exec 'call system("cat clipboard.txt \| mail $USER\@unh.edu")'<bar>:q<bar>:call delete('clipboard.txt')<cr>
 
+" run 'drush cr'
+map <F8> <nop>
+map <F8> :! drush cr<CR>
 
 " support cursor shape changes within and without tmux
 if exists('$TMUX')
