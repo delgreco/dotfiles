@@ -14,6 +14,8 @@ filetype on
 au BufNewFile,BufRead *.t set filetype=perl
 " support Perl subroutine signatures in syntax highlighting
 let perl_sub_signatures = 1
+" making this consistent helps syntax highlighting consistency
+set background=light
 " increase redrawtime from default 2 seconds
 " to improve syntax highlighting support
 set redrawtime=10000
