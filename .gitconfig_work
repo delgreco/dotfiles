@@ -5,3 +5,5 @@ name = Marcus Del Greco
 email = delgreco@unh.edu
 [credential]
 	helper = store
+[safe]
+	directory = /var/projects/tdx-group-matcher

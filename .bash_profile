@@ -8,6 +8,23 @@ if [ -f ~/.bash_profile.${USER} ]; then
     . ~/.bash_profile.${USER}
 fi
 
+# make sure we have
+# rw-rw-r--
+umask 002
+
+# NOTE: we seemed to need this and then suddenly we seemed not to need it.  Huh??
+# we'll keep it around awhile in case tmux breaks again.
+# load .env file
+# if [[ -f .env ]]; then
+#     source .env
+# fi
+# an AD-based username has an @ in it..., which makes tmux
+# fail to locate its .tmux.conf file, so explicitly
+# exporting $HOME seems to work.
+# if [[ "$HOSTNAME" == "$AD_BOUND_HOSTNAME" ]]; then
+#     export HOME="/home/$USER"
+# fi
+
 # append import paths to $PATH 
 PATH=$HOME/.local/bin:/usr/local/bin:$PATH:/var/www/pbin/Perlbrew/bin
 
