@@ -14,6 +14,7 @@ alias supergrep='LC_ALL=C fgrep -A 50 -B 50'
 alias ulazy='sudo umount -f -a -t cifs -l'
 alias v='vim'
 alias pg='sudo -u postgres psql'
+alias venv="source venv/bin/activate"
 
 # IX and Subversion
 alias ixk='sudo /usr/local/bin/ixctl kill'
