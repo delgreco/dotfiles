@@ -4,7 +4,7 @@ if [ -n "$BASH_VERSION" ]; then
     shopt -s expand_aliases
 fi
 
-# general / Apache / cron
+# general / Apache / cron / vim / Postrgres
 alias cron='sudo crontab -l -u'
 alias restart='sudo apachectl restart'
 alias space='sudo du -hsx * | sort -rh | head -10'
