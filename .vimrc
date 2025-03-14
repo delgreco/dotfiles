@@ -184,6 +184,12 @@ let g:signify_realtime = 1
 " enable multi-line commenting
 Plug 'tpope/vim-commentary'
 
+" get smarter - but requires vim compiled with Python 3
+if has('python3')
+    Plug 'madox2/vim-ai'
+endif
+let g:vim_ai_token_file_path = '~/.config/openai.token'
+
 "" vim-easymotion - quick jump to line numbers or letter combos
 
 call plug#end()
