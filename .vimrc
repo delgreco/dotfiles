@@ -130,14 +130,40 @@ nnoremap <silent> <F7> :silent split clipboard.txt<bar>silent put<bar>1delete _<
 map <F8> <nop>
 map <F8> :! drush cr<CR>
 
+" highlight current line during INSERT mode
+autocmd InsertEnter * set cursorline
+autocmd InsertLeave * set nocursorline
+
+" insert mode: beam cursor |
+" normal mode: block cursor █
 " support cursor shape changes within and without tmux
-if exists('$TMUX')
-    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+if exists('&guicursor')
+    " ironically, could not get guicursor working
+    " but the below works in vim 9+
+    if exists('$TMUX')
+        let &t_SI = "\e[6 q"
+        let &t_EI = "\e[2 q"
+        " set guicursor=n-v-c:block-Cursor/lCursor
+        " set guicursor+=i:ver25-Cursor/lCursor
+        " set guicursor+=r:hor20-Cursor/lCursor
+    else
+        let &t_SI = "\e[6 q"
+        let &t_EI = "\e[2 q"
+        " set guicursor=n-v-c:block-Cursor/lCursor
+        " set guicursor+=i:ver25-Cursor/lCursor
+        " set guicursor+=r:hor20-Cursor/lCursor
+    endif
 else
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+    if exists('$TMUX')
+        let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+        let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+    else
+        let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+        let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+    endif
 endif
+
+
 
 " templates
 " *.pl
