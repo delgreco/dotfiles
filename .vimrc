@@ -220,6 +220,8 @@ let g:vim_ai_token_file_path = '~/.config/openai.token'
 
 call plug#end()
 
+" fold on indents
+set foldmethod=indent
 " blue text on grey folds
 hi Folded ctermbg=237
 hi Folded ctermfg=033
