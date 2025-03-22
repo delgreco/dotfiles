@@ -136,19 +136,22 @@ autocmd InsertLeave * set nocursorline
 
 " insert mode: beam cursor |
 " normal mode: block cursor █
+" replace mode: underscore cursor _
 " support cursor shape changes within and without tmux
 if exists('&guicursor')
     " ironically, could not get guicursor working
     " but the below works in vim 9+
     if exists('$TMUX')
-        let &t_SI = "\e[6 q"
-        let &t_EI = "\e[2 q"
+        let &t_SI = "\e[6 q"  " I-beam (Insert mode)
+        let &t_SR = "\e[4 q"  " Underscore (Replace mode)
+        let &t_EI = "\e[2 q"  " Block (Normal mode)
         " set guicursor=n-v-c:block-Cursor/lCursor
         " set guicursor+=i:ver25-Cursor/lCursor
         " set guicursor+=r:hor20-Cursor/lCursor
     else
-        let &t_SI = "\e[6 q"
-        let &t_EI = "\e[2 q"
+        let &t_SI = "\e[6 q"  " I-beam (Insert mode)
+        let &t_SR = "\e[4 q"  " Underscore (Replace mode)
+        let &t_EI = "\e[2 q"  " Block (Normal mode)
         " set guicursor=n-v-c:block-Cursor/lCursor
         " set guicursor+=i:ver25-Cursor/lCursor
         " set guicursor+=r:hor20-Cursor/lCursor
