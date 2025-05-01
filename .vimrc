@@ -123,8 +123,34 @@ map <F4> :e<CR> <S-G>
 map <F5> :SignifyDiff<CR>
 " source ~/.vimrc
 map <F6> :source ~/.vimrc<CR>
+
 " email the current register
-nnoremap <silent> <F7> :silent split clipboard.txt<bar>silent put<bar>1delete _<bar>:w<bar>:exec 'call system("cat clipboard.txt \| mail $USER\@unh.edu")'<bar>:q<bar>:call delete('clipboard.txt')<cr>
+"nnoremap <silent> <F7> :silent split clipboard.txt<bar>silent put<bar>1delete _<bar>:w<bar>:exec 'call system("cat clipboard.txt \| mail $USER\@unh.edu")'<bar>:q<bar>:call delete('clipboard.txt')<cr>
+" new way with error handling
+function! MailSnippet()
+    let l:mail_cmd = executable('mail') ? 'mail' : (executable('s-nail') ? 's-nail' : '')
+    if empty(l:mail_cmd)
+        echohl ErrorMsg | echom "No mail command found (mail or s-nail)" | echohl None
+        return
+    endif
+
+    " Read the email address from ~/.vim_email
+    let l:email_file = expand('~/.vim_email')
+    if !filereadable(l:email_file)
+        echohl ErrorMsg | echom "Email file ~/.vim_email not found or unreadable" | echohl None
+        return
+    endif
+    let l:email = trim(readfile(l:email_file)[0])
+
+    let l:tmpfile = tempname()
+    silent execute 'write! '.l:tmpfile
+
+    let l:cmd = printf("%s -s 'Vim Snippet' %s < %s", l:mail_cmd, l:email, l:tmpfile)
+    call system(l:cmd)
+    echom "Snippet emailed to ".l:email." using ".l:mail_cmd
+endfunction
+
+nnoremap <F7> :call MailSnippet()<CR>
 
 " run 'drush cr'
 map <F8> <nop>
