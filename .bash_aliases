@@ -27,6 +27,7 @@ alias pu='pointup'
 alias psmew='watch psme'
 alias svnl='svnl.pl';
 alias tmix='~/dotfiles/tmix.sh'
+alias tmdt='~/dotfiles/tmdt.sh'
 
 function svndiff() {
     svn diff $1 | vim -

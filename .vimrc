@@ -152,9 +152,7 @@ endfunction
 
 nnoremap <F7> :call MailSnippet()<CR>
 
-" run 'drush cr'
-map <F8> <nop>
-map <F8> :! drush cr<CR>
+" Functions keys F8 and up reserved for custom macros
 
 " highlight current line during INSERT mode
 autocmd InsertEnter * set cursorline
