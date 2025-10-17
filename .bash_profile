@@ -3,6 +3,15 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
+# make sure bash completion is working
+if [ -n "$PS1" ]; then
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        . /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
+    fi
+fi
+
 # load user-specific profile, if present
 if [ -f ~/.bash_profile.${USER} ]; then
     . ~/.bash_profile.${USER}

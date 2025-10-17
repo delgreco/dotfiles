@@ -28,6 +28,7 @@
 --ignore-directory=is:log
 --ignore-directory=is:POD
 --ignore-directory=is:IX
+--ignore-directory=is:TD
 --ignore-directory=is:tinymce
 --ignore-file=is:arm_dev.dump
 #--ignore-directory=is:deploy
