@@ -134,7 +134,7 @@ function! MailSnippet()
         return
     endif
 
-    " Read the email address from ~/.vim_email
+    " read the email address from ~/.vim_email
     let l:email_file = expand('~/.vim_email')
     if !filereadable(l:email_file)
         echohl ErrorMsg | echom "Email file ~/.vim_email not found or unreadable" | echohl None
@@ -143,7 +143,10 @@ function! MailSnippet()
     let l:email = trim(readfile(l:email_file)[0])
 
     let l:tmpfile = tempname()
-    silent execute 'write! '.l:tmpfile
+
+    " get the unnamed register as a string and split by newline for writefile()
+    let l:snippet = getreg('"')
+    call writefile(split(l:snippet, '\n'), l:tmpfile)
 
     let l:cmd = printf("%s -s 'Vim Snippet' %s < %s", l:mail_cmd, l:email, l:tmpfile)
     call system(l:cmd)
