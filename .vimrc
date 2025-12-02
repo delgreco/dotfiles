@@ -1,13 +1,15 @@
-" kinda works but not immediately, only after switching vim panes
-" autocmd BufEnter * wincmd =
-" works after every keypress in vim, but is this too expensive?
-" so far, seems not.  Cursor navigation does not seemed slowed.
+" constantly re-balance split window sizing
 autocmd CursorMoved * wincmd =
+
+" set a guide at 80 characters to encourage manageable line lengths
+set colorcolumn=80
 
 " enable bash aliases within vim
 let $BASH_ENV = "~/.bash_aliases"
 
 colorscheme default
+" shade 80-char guide a light grey
+autocmd ColorScheme * highlight ColorColumn ctermbg=234
 " turn on syntax highlighting
 syntax on
 filetype on
