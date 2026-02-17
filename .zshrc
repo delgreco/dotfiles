@@ -13,3 +13,7 @@ export SEATBELT_PROFILE=restrictive-open
 # restrictive-open: Strict restrictions, network allowed
 # restrictive-closed: Maximum restrictions
 
+
+autoload -U colors
+colors
+PROMPT=$'%{\e[1;31m%}%n%{\e[0m%}@%{\e[0;36m%}%m %{\e[0m%}%{\e[0;32m%}[%~]%{\e[0m%}: '
