@@ -1,8 +1,5 @@
 source ~/.bash_profile
 
-# override to do the prompt in the zsh way
-export PROMPT='@local: '
-
 # careful using AI
 export GEMINI_SANDBOX=sandbox-exec
 #Built-in profiles (set via SEATBELT_PROFILE env var):
@@ -16,4 +13,6 @@ export SEATBELT_PROFILE=restrictive-open
 
 autoload -U colors
 colors
-PROMPT=$'%{\e[1;31m%}%n%{\e[0m%}@%{\e[0;36m%}%m %{\e[0m%}%{\e[0;32m%}[%~]%{\e[0m%}: '
+export PROMPT=$'%{\e[1;31m%}%n%{\e[0m%}@%{\e[0;36m%}%m %{\e[0m%}%{\e[0;32m%}[%~]%{\e[0m%}: '
+
+PATH=/opt/homebrew/bin:$PATH
