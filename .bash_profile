@@ -95,7 +95,7 @@ alias ls='ls --color'
 # attach to last tmux session, or start a new session
 # if no session exists
 if [ -z "$TMUX" ]; then
-    tmux a -d || tmux new -s new
+    tmux a || tmux new -s new
 fi
 
 # for storing SVN passwords securely
