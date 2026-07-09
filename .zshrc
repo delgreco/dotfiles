@@ -16,3 +16,4 @@ colors
 export PROMPT=$'%{\e[1;31m%}%n%{\e[0m%}@%{\e[0;36m%}%m %{\e[0m%}%{\e[0;32m%}[%~]%{\e[0m%}: '
 
 PATH=/opt/homebrew/bin:$PATH
+PATH=$HOME/.local/bin:$PATH  # for Antigravity - agy
