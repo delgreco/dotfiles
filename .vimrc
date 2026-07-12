@@ -1,13 +1,15 @@
-" kinda works but not immediately, only after switching vim panes
-" autocmd BufEnter * wincmd =
-" works after every keypress in vim, but is this too expensive?
-" so far, seems not.  Cursor navigation does not seemed slowed.
+" constantly re-balance split window sizing
 autocmd CursorMoved * wincmd =
+
+" set a guide at 80 characters to encourage manageable line lengths
+set colorcolumn=80
 
 " enable bash aliases within vim
 let $BASH_ENV = "~/.bash_aliases"
 
 colorscheme default
+" shade 80-char guide a light grey
+autocmd ColorScheme * highlight ColorColumn ctermbg=234
 " turn on syntax highlighting
 syntax on
 filetype on
@@ -124,12 +126,39 @@ map <F4> :e<CR> <S-G>
 map <F5> :SignifyDiff<CR>
 " source ~/.vimrc
 map <F6> :source ~/.vimrc<CR>
-" email the current register
-nnoremap <silent> <F7> :silent split clipboard.txt<bar>silent put<bar>1delete _<bar>:w<bar>:exec 'call system("cat clipboard.txt \| mail $USER\@unh.edu")'<bar>:q<bar>:call delete('clipboard.txt')<cr>
 
-" run 'drush cr'
-map <F8> <nop>
-map <F8> :! drush cr<CR>
+" email the current register
+"nnoremap <silent> <F7> :silent split clipboard.txt<bar>silent put<bar>1delete _<bar>:w<bar>:exec 'call system("cat clipboard.txt \| mail $USER\@unh.edu")'<bar>:q<bar>:call delete('clipboard.txt')<cr>
+" new way with error handling
+function! MailSnippet()
+    let l:mail_cmd = executable('mail') ? 'mail' : (executable('s-nail') ? 's-nail' : '')
+    if empty(l:mail_cmd)
+        echohl ErrorMsg | echom "No mail command found (mail or s-nail)" | echohl None
+        return
+    endif
+
+    " read the email address from ~/.vim_email
+    let l:email_file = expand('~/.vim_email')
+    if !filereadable(l:email_file)
+        echohl ErrorMsg | echom "Email file ~/.vim_email not found or unreadable" | echohl None
+        return
+    endif
+    let l:email = trim(readfile(l:email_file)[0])
+
+    let l:tmpfile = tempname()
+
+    " get the unnamed register as a string and split by newline for writefile()
+    let l:snippet = getreg('"')
+    call writefile(split(l:snippet, '\n'), l:tmpfile)
+
+    let l:cmd = printf("%s -s 'Vim Snippet' %s < %s", l:mail_cmd, l:email, l:tmpfile)
+    call system(l:cmd)
+    echom "Snippet emailed to ".l:email." using ".l:mail_cmd
+endfunction
+
+nnoremap <F7> :call MailSnippet()<CR>
+
+" Functions keys F8 and up reserved for custom macros
 
 " highlight current line during INSERT mode
 autocmd InsertEnter * set cursorline

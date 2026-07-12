@@ -62,6 +62,7 @@ sub _linkConfigFiles {
     my @files = (
         '.bash_profile',
         '.bash_aliases',
+        '.bashrc',
         '.ackrc',
         '.gitconfig',
         '.gnupg',

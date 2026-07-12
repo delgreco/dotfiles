@@ -16,3 +16,7 @@ set foldnestmax=2
 set foldlevel=1
 set foldlevelstart=0
 
+" special macro to write all open buffers
+" and restart Streamlit in Chatbot DEV in background
+nnoremap <F8> :wa<bar>:echo system('~/restart_dt_dev.sh')<CR>:echo "Chatbot DEV restarted"<CR>
+

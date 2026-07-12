@@ -25,8 +25,10 @@ alias point='svn propset svn:externals -F svn.externals .'
 alias pointup='svn propset svn:externals -F svn.externals .; svn up;'
 alias pu='pointup'
 alias psmew='watch psme'
+alias serve='python3 -m http.server 8000'
 alias svnl='svnl.pl';
 alias tmix='~/dotfiles/tmix.sh'
+alias tmdt='~/dotfiles/tmdt.sh'
 
 function svndiff() {
     svn diff $1 | vim -

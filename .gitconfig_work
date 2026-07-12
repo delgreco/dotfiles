@@ -7,3 +7,5 @@ email = delgreco@unh.edu
 	helper = store
 [safe]
 	directory = /var/projects/tdx-group-matcher
+[alias]
+    ci = commit

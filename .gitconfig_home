@@ -5,3 +5,6 @@ name = Marcus Del Greco
 email = marcus@mindmined.com
 [credential]
 	helper = store
+
+[alias]
+    ci = commit
