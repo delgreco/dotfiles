@@ -12,6 +12,7 @@ colorscheme default
 syntax on
 filetype on
 au BufNewFile,BufRead *.t set filetype=perl
+au BufNewFile,BufRead *.pm.tmpl set filetype=perl
 " support Perl subroutine signatures in syntax highlighting
 let perl_sub_signatures = 1
 " making this consistent helps syntax highlighting consistency
