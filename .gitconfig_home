@@ -8,3 +8,4 @@ email = marcus@mindmined.com
 
 [alias]
     ci = commit
+    st = status

@@ -9,6 +9,7 @@ alias cron='sudo crontab -l -u'
 alias restart='sudo apachectl restart'
 alias space='sudo du -hsx * | sort -rh | head -10'
 alias weblog='sudo vim /etc/httpd/logs/error_log'
+alias serve='python3 -m http.server 8000'
 alias ssl_weblog='sudo vim /etc/httpd/logs/ssl_error_log'
 alias supergrep='LC_ALL=C fgrep -A 50 -B 50'
 alias ulazy='sudo umount -f -a -t cifs -l'
@@ -25,10 +26,10 @@ alias point='svn propset svn:externals -F svn.externals .'
 alias pointup='svn propset svn:externals -F svn.externals .; svn up;'
 alias pu='pointup'
 alias psmew='watch psme'
-alias serve='python3 -m http.server 8000'
 alias svnl='svnl.pl';
 alias tmix='~/dotfiles/tmix.sh'
 alias tmdt='~/dotfiles/tmdt.sh'
+
 
 function svndiff() {
     svn diff $1 | vim -

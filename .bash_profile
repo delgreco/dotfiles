@@ -7,4 +7,3 @@ fi
 if [ -f ~/.bash_profile.${USER} ]; then
     . ~/.bash_profile.${USER}
 fi
-
