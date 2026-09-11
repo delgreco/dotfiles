@@ -8,7 +8,9 @@
 - When considering solutions, favor those which result in less code while never sacrificing functionality.
 - After summarizing changes, provide a one line git commit message in this format:
 
+```
     git ci -am "[the message]"
+```
 
 ...but allow me to commit manually.
 
@@ -19,24 +21,30 @@
 - Write code with spaces inside parentheses
 - elsifs and elses should always get a new line as in:
 
+```
     if ( true ) {
     }
     elsif ( undef ) {
     }
     else {
     }
+```
 
 - Use whitespace between operators as in
 
+```
     if ( ! $active ) {
+```
 
 ## Perl-specific standards
 
 - Maintain inline POD comments above each subroutine to explain its function
 - Define any SQL code in a variable using indented HEREDOCs as in:
-    
+
+```
     my $sql = <<~"SQL";
     SELECT column FROM table WHERE id = ?
     SQL
+```
 
     
