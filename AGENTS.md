@@ -3,10 +3,13 @@
 - Do not restart ngnix, Apache or Starman services yourself; instead prompt me when they need restarting.
 - Do not try to read an .env file.  Look for .env.example to learn about the available environmental variables.
 - Do not use environmental variables that are not listed as available in .env.example.  If you want to add a new variable, prompt me for approval.
-- Maintain a HISTORY.md file into which each summary is prepended (newest changes go first) after coding actions.  Do not suggest edits to past history entries.  Do not refer to full local file paths as in file:///, rather refer to relative file paths within the project.
+- Maintain a HISTORY.md file into which each summary is prepended (newest changes go first) after coding actions.  Do not suggest edits to past history entries.
 - If there is a test suite, only run it in entirety when necessary.
 - When considering solutions, favor those which result in less code while never sacrificing functionality.
 - After summarizing changes, provide a one line git commit message in this format:
+- Never modify past migrations (such as migration 1). Always add a new incremental migration file in migrations/ for any database schema changes.
+- Do not refer to local paths such as file:// in documentation, use relative paths within the project
+
 
 ```
     git ci -am "[the message]"

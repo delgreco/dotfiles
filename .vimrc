@@ -66,6 +66,12 @@ command! W w
 command! Q q
 command! S Sex
 
+" Hunagrian letters with double-acute accents
+iabbrev ;o ő
+"iabbrev ;uu ű
+"iabbrev ;OO Ő
+"iabbrev ;UU Ű
+
 " always display status line
 set laststatus=2
 " get current user@host
