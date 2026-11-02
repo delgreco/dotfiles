@@ -66,11 +66,11 @@ command! W w
 command! Q q
 command! S Sex
 
-" Hunagrian letters with double-acute accents
-iabbrev ;o ő
-"iabbrev ;uu ű
-"iabbrev ;OO Ő
-"iabbrev ;UU Ű
+" Hungarian letters with double-acute accents
+inoremap ;o ő
+inoremap ;u ű
+inoremap ;O Ő
+inoremap ;U Ű
 
 " always display status line
 set laststatus=2
